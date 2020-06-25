@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Warehouse.Views.OnWarehouseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Warehouse.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*" MinHeight="50"/>
+            <RowDefinition Height="150*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="Статус 'На складе'" FontSize="22" VerticalAlignment="Center" TextAlignment="Left" Margin="20,0,0,0"/>
+        </Grid>
+
+        <ListView x:Name="onWarehouseList" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="ID" FontSize="14" MinWidth="50"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding Id}" MinWidth="50" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="Категория" FontSize="14" MinWidth="150"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding Category}" MinWidth="150" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="Товар" FontSize="14" MinWidth="150"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding GoodName}" MinWidth="150" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="Смена статуса" FontSize="14" MinWidth="150"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Продать"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

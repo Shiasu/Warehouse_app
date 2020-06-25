@@ -1,0 +1,52 @@
+﻿<Window x:Class="Warehouse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        xmlns:viewmodels="clr-namespace:Warehouse.ViewModels"
+        xmlns:views="clr-namespace:Warehouse.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Name="acceptedViewTemplate" DataType="{x:Type viewmodels:AcceptedViewModel}">
+            <views:AcceptedView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="onWarehouseViewTemplate" DataType="{x:Type viewmodels:OnWarehouseViewModel}">
+            <views:OnWarehouseView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="soldViewTemplate" DataType="{x:Type viewmodels:SoldViewModel}">
+            <views:SoldView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="reportViewTemplate" DataType="{x:Type viewmodels:ReportViewModel}">
+            <views:ReportView DataContext="{Binding}"/>
+        </DataTemplate>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="Snow">
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="30" Height="50*"/>
+                <RowDefinition MinHeight="30" Height="35*"/>
+                <RowDefinition MinHeight="30" Height="35*"/>
+                <RowDefinition MinHeight="30" Height="35*"/>
+                <RowDefinition MinHeight="30" Height="35*"/>
+                <RowDefinition Height="280*"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Панель меню" FontSize="15" Grid.Column="0" Grid.Row="0"/>
+            <Button Content="Принят" Grid.Row="1" Click="AcceptedView_Clicked"/>
+            <Button Content="На склад" Grid.Row="2" Click="OnWarehouseView_Clicked"/>
+            <Button Content="Продан" Grid.Row="3" Click="SoldView_Clicked"/>
+            <Button Content="Отчет" Grid.Row="4" Click="ReportView_Clicked"/>
+        </Grid>
+
+        <ContentControl Content="{Binding}" Grid.Column="1"/>
+    </Grid>
+</Window>
