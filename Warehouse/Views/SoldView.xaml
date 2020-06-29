@@ -8,9 +8,42 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*" MinHeight="50"/>
             <RowDefinition Height="150*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Продано" Grid.Row="0" FontSize="20" VerticalAlignment="Center" TextAlignment="Center"/>
+        <Grid Grid.Row="0">
+            <TextBlock Text="Статус 'Продан'" FontSize="22" VerticalAlignment="Center" TextAlignment="Left" Margin="20,0,0,0"/>
+        </Grid>
+
+        <ListView x:Name="soldList" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="ID" FontSize="14" MinWidth="50"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding Id}" MinWidth="50" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="Категория" FontSize="14" MinWidth="150"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding Category}" MinWidth="150" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="Товар" FontSize="14" MinWidth="150"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding GoodName}" MinWidth="150" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

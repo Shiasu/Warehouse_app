@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,9 +58,13 @@
     </ApplicationDefinition>
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="ViewModels\AcceptedViewModel.cs" />
+    <Compile Include="ViewModels\AddingGoodsDialogViewModel.cs" />
     <Compile Include="ViewModels\OnWarehouseViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\SoldViewModel.cs" />
+    <Compile Include="Views\AddingGoodsDialogWindow.xaml.cs">
+      <DependentUpon>AddingGoodsDialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OnWarehouseView.xaml.cs">
       <DependentUpon>OnWarehouseView.xaml</DependentUpon>
     </Compile>
@@ -70,6 +75,10 @@
       <DependentUpon>SoldView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AcceptedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddingGoodsDialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -11,16 +11,6 @@ namespace Warehouse.ViewModels
 {
     public class OnWarehouseViewModel : MainViewModel
     {
-        public class OnWarehouseGoods
-        {
-            private string _id;
-            private string _category;
-            private string _goodName;
-            public string Id { get => _id; set => _id = value; }
-            public string Category { get => _category; set => _category = value; }
-            public string GoodName { get => _goodName; set => _goodName = value; }
-        }
-
         public DataTable OnWarehouseGoodsDataDB = MainModel.Select("SELECT [dbo].[Goods].[id], [dbo].[Categories].[Category], [dbo].[Goods].[Name]" +
                                                          "FROM [dbo].[Goods]" +
                                                          "JOIN [dbo].[Categories]" +
@@ -31,13 +21,13 @@ namespace Warehouse.ViewModels
         {
             for (int i = 0; i < data.Rows.Count; i++) // перебираем данные
             {
-                OnWarehouseGoods dataGoods = new OnWarehouseGoods() // создаём экземпляр класса
+                MainModel.Goods dataOnWarehouseGoods = new MainModel.Goods() // создаём экземпляр класса
                 {
                     Id = data.Rows[i][0].ToString(), // указываем id
                     Category = data.Rows[i][1].ToString(), // указываем категорию
                     GoodName = data.Rows[i][2].ToString() // указываем название товара
                 };
-                list.Items.Add(dataGoods); // выводим строку в список
+                list.Items.Add(dataOnWarehouseGoods); // выводим строку в список
             }
         }
     }

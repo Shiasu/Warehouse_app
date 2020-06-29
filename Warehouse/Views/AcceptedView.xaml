@@ -16,8 +16,8 @@
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Статус 'Принято'" FontSize="22" VerticalAlignment="Center" TextAlignment="Left" Margin="20,0,0,0"/>
-            <Button MaxWidth="250" MaxHeight="50" Content="Добавить товар" Grid.Column="1" FontSize="18"/>
+            <TextBlock Text="Статус 'Принят'" FontSize="22" VerticalAlignment="Center" TextAlignment="Left" Grid.Column="0" Margin="20,0,0,0"/>
+            <Button MaxWidth="250" MaxHeight="50" Content="Добавить товар" Grid.Column="1" FontSize="18" Click="AddingGoods_clicked"/>
         </Grid>
 
         <ListView x:Name="acceptedList" Grid.Row="1">

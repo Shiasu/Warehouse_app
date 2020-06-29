@@ -11,15 +11,7 @@ namespace Warehouse.ViewModels
 {
     public class AcceptedViewModel : MainViewModel
     {
-        public class AcceptedGoods
-        {
-            private string _id;
-            private string _category;
-            private string _goodName;
-            public string Id { get => _id; set => _id = value; }
-            public string Category { get => _category; set => _category = value; }
-            public string GoodName { get => _goodName; set => _goodName = value; }
-        }
+        
 
         public DataTable AcceptedGoodsDataDB = MainModel.Select("SELECT [dbo].[Goods].[id], [dbo].[Categories].[Category], [dbo].[Goods].[Name]" +
                                                          "FROM [dbo].[Goods]" +
@@ -31,13 +23,13 @@ namespace Warehouse.ViewModels
         {
             for (int i = 0; i < data.Rows.Count; i++) // перебираем данные
             {
-                AcceptedGoods dataGoods = new AcceptedGoods() // создаём экземпляр класса
+                MainModel.Goods dataAcceptedGoods = new MainModel.Goods() // создаём экземпляр класса
                 {
                     Id = data.Rows[i][0].ToString(), // указываем id
                     Category = data.Rows[i][1].ToString(), // указываем категорию
                     GoodName = data.Rows[i][2].ToString() // указываем название товара
                 };
-                list.Items.Add(dataGoods); // выводим строку в список
+                list.Items.Add(dataAcceptedGoods); // выводим строку в список
             }
         }
     }

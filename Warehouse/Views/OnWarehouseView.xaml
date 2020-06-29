@@ -42,16 +42,13 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Width="auto">
-                        <GridViewColumnHeader Content="Смена статуса" FontSize="14" MinWidth="150"/>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Продать"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Продать" Click="SellContext_clicked"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
     </Grid>
 </UserControl>

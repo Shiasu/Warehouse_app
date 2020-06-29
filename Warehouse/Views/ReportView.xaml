@@ -8,9 +8,77 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*" MinHeight="50"/>
             <RowDefinition Height="150*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Отчет" Grid.Row="0" FontSize="20" VerticalAlignment="Center" TextAlignment="Center"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Форма отчета" FontSize="22" VerticalAlignment="Center" TextAlignment="Left" Margin="20,0,0,0"/>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Фильтры" FontSize="15" Grid.Row="0"/>
+                <ComboBox x:Name="categorySelect" Grid.Row="0" Height="20" Width="150" VerticalAlignment="Top">
+                    <ComboBoxItem IsSelected="True">
+                        <TextBlock Text="Все категории"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Принят"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="На складе"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Продан"/>
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="С" Width="20"/>
+                <DatePicker x:Name="dateStart" HorizontalAlignment="Left" Grid.Row="1" SelectedDate="2020-01-01" Width="150" Margin="17,0,0,0"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Text="По" Width="20" Margin="172,5,0,5"/>
+                <DatePicker x:Name="dateEnd" HorizontalAlignment="Left" Grid.Row="1" SelectedDate="2021-01-01" Width="150" Margin="197,0,0,0"/>
+            </Grid>
+
+
+            <Button MaxWidth="250" MaxHeight="50" Content="Сформировать отчет" Grid.Column="2" FontSize="15"/>
+        </Grid>
+
+        <ListView x:Name="acceptedList" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="ID" FontSize="14" MinWidth="50"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding Id}" MinWidth="50" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="Категория" FontSize="14" MinWidth="150"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding Category}" MinWidth="150" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="auto">
+                        <GridViewColumnHeader Content="Товар" FontSize="14" MinWidth="150"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontSize="14" Text="{Binding GoodName}" MinWidth="150" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

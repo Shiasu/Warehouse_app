@@ -25,8 +25,23 @@ namespace Warehouse.Views
         public AcceptedView()
         {
             InitializeComponent();
-            AcceptedViewModel AcData = new AcceptedViewModel();
-            AcData.LoadAcceptedGoodsToList(AcData.AcceptedGoodsDataDB, acceptedList);
+            AcceptedViewModel AcceptData = new AcceptedViewModel();
+            AcceptData.LoadAcceptedGoodsToList(AcceptData.AcceptedGoodsDataDB, acceptedList);
+        }
+
+        //В дальнейшем все обработчики будут преобразованы в команды с помощью интерфейса комманд ICommand
+        //дабы реализовать MVVM более правильно
+        private void AddingGoods_clicked(object sender, RoutedEventArgs e)
+        {
+            AddingGoodsDialogWindow dialogWindow = new AddingGoodsDialogWindow();
+            if (dialogWindow.ShowDialog() == true)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }

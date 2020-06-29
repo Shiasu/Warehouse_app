@@ -7,7 +7,7 @@
         xmlns:viewmodels="clr-namespace:Warehouse.ViewModels"
         xmlns:views="clr-namespace:Warehouse.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="1000">
     <Window.Resources>
         <DataTemplate x:Name="acceptedViewTemplate" DataType="{x:Type viewmodels:AcceptedViewModel}">
             <views:AcceptedView DataContext="{Binding}"/>
@@ -42,10 +42,17 @@
             </Grid.RowDefinitions>
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Панель меню" FontSize="15" Grid.Column="0" Grid.Row="0"/>
             <Button Content="Принят" Grid.Row="1" Click="AcceptedView_Clicked"/>
-            <Button Content="На склад" Grid.Row="2" Click="OnWarehouseView_Clicked"/>
+            <Button Content="На складе" Grid.Row="2" Click="OnWarehouseView_Clicked"/>
             <Button Content="Продан" Grid.Row="3" Click="SoldView_Clicked"/>
             <Button Content="Отчет" Grid.Row="4" Click="ReportView_Clicked"/>
         </Grid>
+        <StackPanel Grid.Column="1" Margin="0,15,0,0">
+            <TextBlock TextWrapping="Wrap" Text="1. Для перемещения по формам используйте панель меню." FontSize="14"/>
+            <TextBlock TextWrapping="Wrap" Text="2. В форме 'Принят' реализована функциональность добавления товара." FontSize="14"/>
+            <TextBlock TextWrapping="Wrap" Text="3. В форме 'На склад' реализована функциональность продажи товара через вызов контекстного меню правой кнопкой мыши.(Временно отключено)" FontSize="14"/>
+            <TextBlock TextWrapping="Wrap" Text="4. В форме 'Отчет' реализована функциональность формирования отчета по различным фильтрам. (Временно отключено)" FontSize="14"/>
+            <TextBlock TextWrapping="Wrap" Text="2. В настоящее время обновление страниц не реализовано, в связи с этим для обновления необходимо использовать переход на другую форму и обратно."  FontSize="14"/>
+        </StackPanel>
 
         <ContentControl Content="{Binding}" Grid.Column="1"/>
     </Grid>

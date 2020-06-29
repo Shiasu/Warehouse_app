@@ -24,8 +24,15 @@ namespace Warehouse.Views
         public OnWarehouseView()
         {
             InitializeComponent();
-            OnWarehouseViewModel AcData = new OnWarehouseViewModel();
-            AcData.LoadOnWarehouseGoodsToList(AcData.OnWarehouseGoodsDataDB, onWarehouseList);
+            OnWarehouseViewModel OnWarehouseData = new OnWarehouseViewModel();
+            OnWarehouseData.LoadOnWarehouseGoodsToList(OnWarehouseData.OnWarehouseGoodsDataDB, onWarehouseList);
+        }
+
+        private void SellContext_clicked(object sender, RoutedEventArgs e)
+        {
+            /*MenuItem menuItem = (MenuItem)e.Source;
+            string block = menuItem.ToString();
+            MessageBox.Show(block);*/
         }
     }
 }

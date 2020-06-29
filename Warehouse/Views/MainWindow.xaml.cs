@@ -25,9 +25,10 @@ namespace Warehouse
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
         }
 
+        //В дальнейшем все обработчики будут преобразованы в команды с помощью интерфейса комманд ICommand
+        //дабы реализовать MVVM более правильно
         private void AcceptedView_Clicked(object sender, RoutedEventArgs e)
         {
             DataContext = new AcceptedViewModel();
