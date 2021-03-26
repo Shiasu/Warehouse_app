@@ -7,7 +7,7 @@
         xmlns:viewmodels="clr-namespace:Warehouse.ViewModels"
         xmlns:views="clr-namespace:Warehouse.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="1000">
+        Title="Warehouse" Height="550" Width="1000">
     <Window.Resources>
         <DataTemplate x:Name="acceptedViewTemplate" DataType="{x:Type viewmodels:AcceptedViewModel}">
             <views:AcceptedView DataContext="{Binding}"/>

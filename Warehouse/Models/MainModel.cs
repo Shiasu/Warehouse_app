@@ -30,7 +30,7 @@ namespace Warehouse.Models
         {
             DataTable dataTable = new DataTable("dataBase");
             //Для подключения к локальной базе данных необходимо изменить в sqlConnection server и Database на свои
-            SqlConnection sqlConnection = new SqlConnection("server=ТОПЧИК-ПК\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=Warehouse_DB;");
+            SqlConnection sqlConnection = new SqlConnection("server=SHIASU-PC\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=Warehouse_DB;");
             try
                 {
                     sqlConnection.Open();
@@ -55,7 +55,7 @@ namespace Warehouse.Models
         {
             DataTable dataTable = new DataTable("dataBase");
             //Для подключения к локальной базе данных необходимо изменить в sqlConnection server и Database на свои
-            SqlConnection sqlConnection = new SqlConnection("server=ТОПЧИК-ПК\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=Warehouse_DB;");
+            SqlConnection sqlConnection = new SqlConnection("server=SHIASU-PC\\SQLEXPRESS;Trusted_Connection=Yes;DataBase=Warehouse_DB;");
             try
             {
                 sqlConnection.Open();
